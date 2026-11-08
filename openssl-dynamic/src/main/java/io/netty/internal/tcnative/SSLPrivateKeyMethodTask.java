@@ -16,7 +16,6 @@
 package io.netty.internal.tcnative;
 
 abstract class SSLPrivateKeyMethodTask extends SSLTask {
-    private static final byte[] EMPTY = new byte[0];
     private final SSLPrivateKeyMethod method;
 
     // Will be accessed via JNI.
@@ -34,7 +33,7 @@ abstract class SSLPrivateKeyMethodTask extends SSLTask {
             return 1;
         } catch (Exception e) {
             // Return 0 as this signals back that the operation failed.
-            resultBytes = EMPTY;
+            resultBytes = null;
             return 0;
         }
     }
